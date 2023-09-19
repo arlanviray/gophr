@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="86px" viewBox="0 0 95 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 18</title>
+    <g id="Modules" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Business-Page" transform="translate(-789.000000, -5768.000000)">
+            <g id="Group-18" transform="translate(791.000000, 5773.000000)">
+                <polygon id="Fill-1" fill="#F0F0F7" points="13.2530982 37.3291085 13.2530982 64.8286915 38.2535125 78.5789 63.2530982 64.8286915 63.2530982 37.3291085 38.2535125 23.5789"></polygon>
+                <polygon id="Stroke-2" stroke="#9D9590" stroke-width="3" points="13.2530982 37.3291085 13.2530982 64.8286915 38.2535125 78.5789 63.2530982 64.8286915 63.2530982 37.3291085 38.2535125 23.5789"></polygon>
+                <polyline id="Fill-4" fill="#F0F0F7" points="38.2530982 78.5789 38.2530982 51.245843 13.2530982 37.5789"></polyline>
+                <polyline id="Stroke-5" stroke="#9D9590" stroke-width="3" points="38.2530982 78.5789 38.2530982 51.245843 13.2530982 37.5789"></polyline>
+                <g id="Group-9" transform="translate(39.253098, 36.578900)">
+                    <line x1="0" y1="14" x2="25" y2="0" id="Fill-7" fill="#F0F0F7"></line>
+                    <line x1="0" y1="14" x2="25" y2="0" id="Stroke-8" stroke="#9D9590" stroke-width="3"></line>
+                </g>
+                <g id="Group-12" transform="translate(26.253098, 29.578900)">
+                    <line x1="25" y1="14" x2="0" y2="0" id="Fill-10" fill="#F0F0F7"></line>
+                    <line x1="25" y1="14" x2="0" y2="0" id="Stroke-11" stroke="#9D9590" stroke-width="3"></line>
+                </g>
+                <g id="Group-17" transform="translate(0.253098, 0.578900)" stroke="#9D9590" stroke-width="3">
+                    <path d="M71.6426214,49 C82.3331661,49 91,40.4113596 91,29.8172667 C91,19.2231738 82.3331661,10.6353621 71.6426214,10.6353621 L0.891352593,10.6353621" id="Stroke-13"></path>
+                    <polyline id="Stroke-15" points="9.30070695 21.4956333 1.48546794e-15 10.7474023 9.30070695 0"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

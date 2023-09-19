@@ -1,0 +1,612 @@
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script type="text/javascript" >
+const gophrUtils = {
+    getBrowserType() {
+        const ua = navigator.userAgent
+        if ((ua.indexOf("Opera") || ua.indexOf("OPR")) !== -1) {
+            return "Opera"
+        } else if (ua.indexOf("Edg") !== -1) {
+            return "Edge"
+        } else if (ua.indexOf("Chrome") !== -1) {
+            return "Chrome"
+        } else if (ua.indexOf("Safari") !== -1) {
+            return "Safari"
+        } else if (ua.indexOf("Firefox") !== -1) {
+            return "Firefox"
+        }  else {
+            return "Unknown"
+        }
+    },
+
+    getDeviceType() {
+        const ua = navigator.userAgent
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+            return "tablet"
+        }
+        if (/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+            return "mobile"
+        }
+        return "desktop"
+    },
+
+    getMobileOS() {
+        const ua = navigator.userAgent
+        if (/android/i.test(ua)) {
+            return "os-android"
+        }
+        if (/iPad|iPhone|iPod/.test(ua)) {
+            return "os-ios"
+        }
+        return "os-other"
+    },
+
+    getUrlVars() {
+        return new URLSearchParams(window.location.search)
+    },
+
+    getUrlParam(param) {
+        return this.getUrlVars().get(param)
+    },
+
+    wrapper(el, wrapper) {
+        el.parentNode.insertBefore(wrapper, el)
+        wrapper.appendChild(el)
+    },
+
+    getBounds(el) {
+        const rect = el.getBoundingClientRect()
+        return {
+            x: rect.x,
+            y: rect.y,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+            left: rect.left,
+            width: rect.width,
+            height: rect.height,
+        }
+    },
+
+    scrollToTarget(target, duration = 750) {
+        if (!target) return
+        const megaMenuDevice = document.body.classList.contains("desktop") ? document.querySelector(".menu-wrapper") : document.querySelector(".mobmenu")
+        const megaMenu = megaMenuDevice ? this.getBounds(megaMenuDevice).height : 0
+        const wpAdminBar = document.querySelector("#wpadminbar") ? this.getBounds(document.querySelector("#wpadminbar")).height : 0
+        const startPos = window.pageYOffset
+        const startDiff = this.getBounds(target).top - (megaMenu + wpAdminBar)
+
+        let startTime = null
+        let requestId
+
+        // eslint-disable-next-line no-param-reassign
+        const easeInOutQuart = (t) => (t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t)
+
+        const loop = (currentTime) => {
+            if (!startTime) {
+                startTime = currentTime
+            }
+
+            // Elapsed time in miliseconds
+            const time = currentTime - startTime
+            const percent = Math.min(time / duration, 1)
+            window.scrollTo(0, startPos + startDiff * easeInOutQuart(percent))
+
+            if (time < duration) {
+                // Continue moving
+                requestId = window.requestAnimationFrame(loop)
+            } else {
+                window.cancelAnimationFrame(requestId)
+            }
+        }
+
+        requestId = window.requestAnimationFrame(loop)
+    },
+
+    isFrontendEditor() {
+        return this.getUrlVars().has("vc_editable")
+    },
+}
+const gophrInit = {
+    init() {
+        // use for styling
+        document.body.classList.add("js-enable", gophrUtils.getDeviceType(), gophrUtils.getMobileOS())
+
+        this.setEvents()
+        this.setModules()
+        this.setAnimations()
+        this.setAnimationsDesktopOnly()
+
+        setTimeout(() => {
+            this.setCarousel()
+            this.setAccordion()
+        }, gophrUtils.isFrontendEditor() ? 500 : 0)
+    },
+
+    onScrollToTarget(target, fromUrl = false) {
+        if (fromUrl) {
+            setTimeout(() => {
+                gophrUtils.scrollToTarget(target)
+                // due to lazyload of the images - redo scroll for accurate stop to target element
+                setTimeout(() => gophrUtils.scrollToTarget(target), 1000)
+            }, 2000)
+        } else {
+            gophrUtils.scrollToTarget(target)
+            // due to lazyload of the images - redo scroll for accurate stop to target element
+            setTimeout(() => gophrUtils.scrollToTarget(target), 1000)
+        }
+    },
+
+    setEvents() {
+        // anchors links via buttons
+        const anchorTos = document.querySelectorAll(".js-anchorto")
+        if (anchorTos.length) {
+            anchorTos.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    const hrefValue = btn.getAttribute("href").replace("#", "")
+                    const linkByClassname = hrefValue.includes("byClassname:")
+
+                    if (linkByClassname) {
+                        this.onScrollToTarget(document.querySelector(`.${hrefValue.replace("byClassname:", "")}`))
+                    } else {
+                        this.onScrollToTarget(document.querySelector(`[data-section="${hrefValue}"]`))
+                    }
+                }, false)
+            })
+        }
+
+        // anchor link via url param
+        const anchorByRow = gophrUtils.getUrlParam("anchorto")
+        const anchorByName = gophrUtils.getUrlParam("anchorbyname")
+        const anchorById = gophrUtils.getUrlParam("anchorbyid")
+        const anchorByClassname = gophrUtils.getUrlParam("anchorbyclass")
+        const anchorByUrlParam = anchorByRow || anchorByName || anchorById || anchorByClassname
+        if (anchorByUrlParam !== null && anchorByUrlParam !== undefined) {
+            if (anchorByName) {
+                this.onScrollToTarget(document.querySelector(`[data-name="${anchorByName}"]`), true)
+            } else if (anchorById) {
+                this.onScrollToTarget(document.querySelector(`#${anchorById}`), true)
+            } else if (anchorByClassname) {
+                this.onScrollToTarget(document.querySelector(`.${anchorByClassname}`), true)
+            } else {
+                this.onScrollToTarget(document.querySelector(`[data-section="${anchorByRow}"]`), true)
+            }
+        }
+
+        // header and footer, set colour scheme classname to auto update button colors
+        const elSection = document.querySelector("section")
+        if (elSection && /gophr--/i.test(elSection.className)) {
+            const gophrColorScheme = elSection.className.split(" ")
+            gophrColorScheme.forEach((gophrClass) => {
+                if (gophrClass.includes("gophr--")) {
+                    document.querySelector("header").classList.add("gophr--header", gophrClass)
+                    document.querySelector("footer").classList.add("gophr--footer", gophrClass)
+                }
+            })
+        }
+
+        //-- header insert classname to navbar-cta buttons
+        const navbarCTA = document.querySelector("header .navbar-cta")
+        if (navbarCTA) {
+            setTimeout(() => {navbarCTA.classList.add("navbar-cta-show", "gophr--anim", "anim-elShow")}, 0)
+            navbarCTA.querySelectorAll("ul li").forEach((btn, index) => {
+                if (index < 1) {
+                    btn.querySelector("a").classList.add("btn", "btn-gophr_button_outline")
+                } else {
+                    btn.querySelector("a").classList.add("btn", "btn-gophr_button_solid")
+                }
+            })
+        }
+
+        //-- footer disable click events on main title categories
+        const titleCategories = document.querySelectorAll("footer .footer-links-container a[href='#']")
+        if (titleCategories.length) {
+            titleCategories.forEach((title) => {
+                title.addEventListener("click", (e) => {
+                    e.preventDefault()
+                }, false)
+            })
+        }
+    },
+
+    setCarousel() {
+        const carousels = document.querySelectorAll(".gophr--mod-carousel")
+        carousels.forEach((carousel) => {
+            const isCarouselBoxes = carousel.classList.contains("gophr--carousel-boxes")
+            const isCarouselSingle1 = carousel.classList.contains("gophr--carousel-singles1")
+            const noloopCarousel = carousel.classList.contains("carousel-noloop")
+            const hasModHeadings = carousel.querySelector(".gophr--mod-headings")
+
+            // el swiper
+            const slides = carousel.querySelectorAll(".row-internal:not(.gophr--mod-headings)")
+            const swiperMain = document.createElement("div")
+            swiperMain.className = "swiper"
+            if (hasModHeadings) {
+                carousel.querySelector(".uncont").insertBefore(swiperMain, hasModHeadings.nextSibling)
+            } else {
+                carousel.querySelector(".uncont").insertBefore(swiperMain, carousel.querySelector(".uncont").children[0])
+            }
+
+            // el wrapper
+            const swiperWrapper = document.createElement("div")
+            swiperWrapper.className = "swiper-wrapper"
+            swiperMain.appendChild(swiperWrapper)
+
+            // el sliders
+            const sliderLoop = gophrUtils.isFrontendEditor() ? false : (noloopCarousel ? false : true)
+            let sliderFirstImage = null
+            let sliderLastImage = null
+
+            slides.forEach((slide) => {
+                const swiperSlide = document.createElement("div")
+                swiperSlide.className = "swiper-slide"
+                gophrUtils.wrapper(slide, swiperSlide)
+                swiperWrapper.appendChild(swiperSlide)
+            })
+
+            // navigation
+            const swiperNav = document.createElement("div")
+            swiperNav.className = "swiper-navigation"
+            carousel.querySelector(".uncont").appendChild(swiperNav)
+            if (isCarouselBoxes) {
+                const trustPilotTheme = carousel.classList.contains("gophr--bg-dark") ? "dark" : "light"
+                swiperNav.innerHTML = `<div class="sn-row">
+                        <div class="sn-col">
+                            <div class="btn-gophr_button_prev"></div>
+                            <div class="btn-gophr_button_next"></div>
+                            <div class="sn-counter">
+                                <span class="sn-current">1</span> of <span class="sn-total">${slides.length}</span>
+                            </div>    
+                        </div>
+                        <div class="sn-col"><!-- TrustBox widget - Micro Star --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="577b943d0000ff000591f43c" data-style-height="24px" data-style-width="300px" data-theme="${trustPilotTheme}"><a href="https://uk.trustpilot.com/review/gophr.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget --></div>
+                    </div>`
+            } else {
+                swiperNav.innerHTML = `<div class="sn-buttons">
+                        <div class="btn-gophr_button_prev"></div>
+                        <div class="btn-gophr_button_next"></div>
+                    </div>
+                    <div class="sn-counter">
+                        <span class="sn-current">1</span> of <span class="sn-total">${slides.length}</span>
+                    </div> `
+            }
+
+            const counterValue = (val) => {
+                carousel.querySelector(".sn-current").textContent = val + 1
+            }
+
+            const positionBtnArrows = (swiper) => {
+                const activeImgHeight = swiper.slides[swiper.activeIndex].querySelector(".swiper-slide-image img").offsetHeight
+                carousel.querySelector(".swiper-navigation .sn-buttons").style.height = `${activeImgHeight}px`
+                if (hasModHeadings) {
+                    carousel.querySelector(".swiper-navigation .sn-buttons").style.top = `${carousel.querySelector(".swiper").offsetTop}px`
+                }
+            }
+
+            // set delay to work with loop
+            setTimeout(() => {
+                // init swiper
+                const swiper = new Swiper(carousel.querySelector(".swiper"), {
+                    slidesPerView: "auto",
+                    spaceBetween: 0,
+                    autoHeight: isCarouselBoxes ? false : true,
+                    grabCursor: true,
+                    loop: sliderLoop,
+                    on: {
+                        init: function() {
+                            counterValue(this.realIndex)
+                            if (isCarouselSingle1) {
+                                positionBtnArrows(this)
+                            }
+
+                            // code hack on swiper loop! 
+                            // To display images from duplicate slider elements
+                            if (sliderLoop) {
+                                for (let slideIndex = 0; slideIndex < slides.length; slideIndex++) {
+                                    carousel.querySelectorAll(`[data-swiper-slide-index="${slideIndex}"]`).forEach((slide) => {
+                                        const slideThumb = slide.querySelector(".swiper-slide-thumb img")
+                                        if (slideThumb) {
+                                            const thumbDataSrcset = slideThumb.dataset.srcset
+                                            const thumbDataSrc = slideThumb.dataset.src
+                                            if (thumbDataSrcset) {
+                                                slideThumb.setAttribute("srcset", thumbDataSrcset)
+                                            } else if (thumbDataSrc) {
+                                                slideThumb.setAttribute("src", thumbDataSrc)
+                                            }
+                                        }
+
+                                        const slideImage = slide.querySelector(".swiper-slide-image img")
+                                        const imageDataSrcset = slideImage.dataset.srcset
+                                        const imageDataSrc = slideImage.dataset.src
+                                        if (imageDataSrcset) {
+                                            slideImage.setAttribute("srcset", imageDataSrcset)
+                                        } else if (imageDataSrc) {
+                                            slideImage.setAttribute("src", imageDataSrc)
+                                        }
+                                    })
+                                }
+                            }
+
+                            // show carousel
+                            carousel.querySelector(".row-parent").style.setProperty("opacity", 1)
+                        },
+                    },
+                })
+
+                // events
+                carousel.querySelector(".btn-gophr_button_prev").addEventListener("click", () => swiper.slidePrev())
+                carousel.querySelector(".btn-gophr_button_next").addEventListener("click", () => swiper.slideNext())
+                swiper.on("slideChange", () => {
+                    counterValue(swiper.realIndex)
+                    if (isCarouselSingle1) {
+                        positionBtnArrows(swiper)
+                    }
+                })
+            }, 500)
+        })
+    },
+
+    setAccordion() {
+        const accordions = document.querySelectorAll(".gophr--mod-accordion")
+        accordions.forEach((accordion) => {
+            const accSections = accordion.querySelectorAll(".accordion-section")
+            accSections.forEach((accSection, index) => {
+                const accHeaders = accSection.querySelector(".accordion-headers")
+                const accContents = accSection.querySelector(".accordion-contents")
+
+                // initial - if viewing with front editor
+                if (gophrUtils.isFrontendEditor()) {
+                    setTimeout(() => {
+                        accSection.querySelector(".wpb_row").style.removeProperty("height")
+                    }, 1500)
+                }
+
+                // initial - show first section
+                if (index < 1 && !accordion.classList.contains("accordion-onload-close")) {
+                    accSection.classList.add("accordion-active")
+                    accContents.style.setProperty("max-height", `${accContents.querySelector(".uncol").offsetHeight * 2}px`)
+                }
+                
+                // events
+                accHeaders.addEventListener("click", () => {
+                    if (accSection.classList.contains("accordion-active")) {
+                        accSection.classList.remove("accordion-active")
+                        accContents.style.removeProperty("max-height")
+                    } else {
+                        accSection.classList.add("accordion-active")
+                        accContents.style.setProperty("max-height", `${accContents.querySelector(".uncol").offsetHeight * 2}px`)
+                    }
+                }, false)
+            })
+        })
+    },
+
+    setModules() {
+        // Module Hero
+        const modHero = document.querySelectorAll(".gophr--mod-hero")
+        if (modHero.length) {
+            modHero.forEach((elModule) => {
+                if (elModule.classList.contains("hero-image-col-bg")) {
+                    const heroImgColBgContainer = document.createElement("div")
+                    heroImgColBgContainer.className = "hero-image-col-bg-container"
+                    elModule.append(heroImgColBgContainer)
+                    // make sure image has loaded first
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.intersectionRatio) {
+                                if (entry.isIntersecting) {
+                                    setTimeout(() => {
+                                        heroImgColBgContainer.style.setProperty("background-image", `url(${elModule.querySelector(".col-lg-7 .uncode-single-media-wrapper img").getAttribute("src")})`)
+                                        // remove when done
+                                        observer.unobserve(entry.target)
+                                    }, 500)        
+                                }
+                            }
+                        })
+                    }, { threshold: 0.12 })
+                    observer.observe(elModule)
+                }
+            })
+        }
+    },
+    
+    setAnimations() {
+        // Module Stats Graph
+        const modStatsGraph = document.querySelectorAll(".gophr--mod-stats-graph")
+        if (modStatsGraph.length) {
+            modStatsGraph.forEach((elModule) => {
+                const elStatsGraphInfo = elModule.querySelectorAll(".stats-graph-info")
+                elStatsGraphInfo.forEach((elInfo) => {
+                    const elInfoValue = elInfo.querySelector(".stats-graph-info-value")
+                    const elInfoGraph = elInfoValue.querySelector(".uncoltable")
+                    const elInfoGraphText = elInfoValue.querySelector(".uncode_text_column")
+                    const elInfoGraphPercentage = elInfoValue.querySelector(".uncont").style.maxWidth
+                    // initial properties
+                    elInfoGraph.style.setProperty("width", 0)
+                    elInfoGraphText.style.setProperty("opacity", 0)
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.intersectionRatio) {
+                                jQuery(elInfoGraph).animate({width: elInfoGraphPercentage}, {
+                                    duration: 1000,
+                                    complete: function() {
+                                        jQuery(elInfoGraphText).animate({opacity: 1})
+                                    }
+                                })
+
+                                // remove when done
+                                observer.unobserve(entry.target)
+                            }
+                        })
+                    }, { threshold: 0.75 })
+                    observer.observe(elInfoGraph)
+                })
+            })
+        }
+    },
+
+    setAnimationsDesktopOnly() {
+        if (gophrUtils.isFrontendEditor() || !document.body.classList.contains("desktop")) {
+            return false
+        }
+
+        // Module Hero
+        const modHero = document.querySelectorAll(".gophr--mod-hero")
+        if (modHero.length) {
+            modHero.forEach((elModule) => {
+                const elUncoltable = elModule.querySelector(".col-lg-7 .uncoltable")
+                elUncoltable.style.setProperty("opacity", 0)
+                if (elModule.classList.contains("hero-image-col-bg")) {
+                    elModule.querySelector(".hero-image-col-bg-container").style.setProperty("opacity", 0)
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.intersectionRatio) {
+                            if (elModule.classList.contains("hero-image-fit-cover")) {
+                                this.showAnimation(elUncoltable, "elShow", 500)
+                            } else if (elModule.classList.contains("hero-image-col-bg")) {
+                                this.showAnimation(elUncoltable, "elShow", 500)
+                                this.showAnimation(elModule.querySelector(".hero-image-col-bg-container"), "elShow", 500)
+                            } else {
+                                this.showAnimation(elUncoltable, "elSlideInFromRight", 500)
+                            }
+
+                            // remove when done
+                            observer.unobserve(entry.target)
+                        }
+                    })
+                }, { threshold: 0.5 })
+                observer.observe(elModule)
+            })
+        }
+
+        // Module Headings Centralise with Buttons and Images
+        const modHeadingsCentralise = document.querySelectorAll(".gophr--mod-headings.headings-centralise")
+        if (modHeadingsCentralise.length) {
+            modHeadingsCentralise.forEach((elModule) => {
+                const elImgContainer = elModule.querySelector(".uncode-single-media .single-wrapper")
+                if (elImgContainer) {
+                    elImgContainer.style.setProperty("opacity", 0)
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.intersectionRatio) {
+                                this.showAnimation(elImgContainer, "elSlideInFromBottom")
+
+                                // remove when done
+                                observer.unobserve(entry.target)
+                            }
+                        })
+                    }, { threshold: 0.5 })
+                    observer.observe(elModule)
+                }
+            })
+        }
+
+        // Module Column Boxes
+        const modColBoxes = document.querySelectorAll(".gophr--mod-col-boxes")
+        if (modColBoxes.length) {
+            modColBoxes.forEach((elModule) => {
+                elModule.querySelectorAll(".wpb_column").forEach((elBox) => {
+                    const elImgContainer = elBox.querySelector(".uncode-single-media .single-wrapper")
+                    if (elImgContainer) {
+                        elImgContainer.style.setProperty("opacity", 0)
+
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.intersectionRatio) {
+                                    this.showAnimation(elImgContainer, "elShow")
+
+                                    // remove when done
+                                    observer.unobserve(entry.target)
+                                }
+                            })
+                        }, { threshold: 0.5 })
+                        observer.observe(elBox)
+                    }
+                })
+            })
+        }
+
+        // Module 2 Columns Default
+        const mod2ColsDef = document.querySelectorAll(".gophr--mod-2-cols-default")
+        if (mod2ColsDef.length) {
+            mod2ColsDef.forEach((elModule) => {
+                const elImgContainer = elModule.querySelector(".wpb_column:nth-child(2) .uncoltable")
+                elImgContainer.style.setProperty("opacity", 0)
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.intersectionRatio) {
+                            this.showAnimation(elImgContainer, "elShow")
+
+                            // remove when done
+                            observer.unobserve(entry.target)
+                        }
+                    })
+                }, { threshold: 0.75 })
+                observer.observe(elImgContainer)
+            })
+        }
+
+        // Module 2 Columns Image & Text
+        const mod2ColsImgTxt = document.querySelectorAll(".gophr--mod-2-cols-image-text")
+        if (mod2ColsImgTxt.length) {
+            mod2ColsImgTxt.forEach((elModule) => {
+                if (elModule.classList.contains("gophr--mod-2-cols-reverse")) {
+                    elModule.querySelector(".wpb_column:nth-child(2) .uncoltable").style.setProperty("opacity", 0)
+                } else {
+                    elModule.querySelector(".wpb_column:nth-child(1) .uncoltable").style.setProperty("opacity", 0)
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.intersectionRatio) {
+                            if (elModule.classList.contains("gophr--mod-2-cols-reverse")) {
+                                this.showAnimation(elModule.querySelector(".wpb_column:nth-child(2) .uncoltable"), "elSlideInFromRight")
+                            } else {
+                                this.showAnimation(elModule.querySelector(".wpb_column:nth-child(1) .uncoltable"), "elSlideInFromLeft")
+                            }
+
+                            // remove when done
+                            observer.unobserve(entry.target)
+                        }
+                    })
+                }, { threshold: 0.75 })
+                observer.observe(elModule)
+            })
+        }
+
+        // Browser height snap element 
+        const browserHeight = document.querySelectorAll(".gophr--browser-height")
+        if (browserHeight.length) {
+            browserHeight.forEach((elModule) => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.intersectionRatio) {
+                            if (entry.isIntersecting) {
+                                gophrUtils.scrollToTarget(elModule, 250)
+                            }
+                        }
+                    })
+                }, { threshold: 0.12 })
+                observer.observe(elModule)
+            })
+        }
+    },
+
+    showAnimation(elTarget, animType, animDuration = 0) {
+        elTarget.style.setProperty("opacity", 0)
+        setTimeout(() => {
+            elTarget.style.removeProperty("opacity")
+            elTarget.classList.add("gophr--anim", `anim-${animType}`)
+        }, animDuration)
+    },
+}
+document.addEventListener("DOMContentLoaded", () => gophrInit.init(), false)
+</script>

@@ -1,0 +1,22 @@
+- STAGING URL (https://x3.gophr.com/wp-admin)
+-
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Bold.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-BoldItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Book.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-BookItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Extrabold.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-ExtraboldItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Extralight.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-ExtralightItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Italic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Light.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-LightItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Medium.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-MediumItalic.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Regular.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-Semibold.otf
+https://x3.gophr.com/wp-includes/fonts/ESKlarheitKurrent-SemiboldItalic.otf
+
+
+- LIVE URL (https://uk.gophr.com/wp-admin)
+-
