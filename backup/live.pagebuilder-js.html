@@ -254,7 +254,6 @@ const gophrInit = {
             carousel.querySelector(".uncont").appendChild(swiperNav)
             if (isCarouselBoxes) {
                 const trustPilotTheme = carousel.classList.contains("gophr--bg-dark") ? "dark" : "light"
-                const trustPilotSet = carousel.classList.contains("no-trustpilot") ? "" : `<!-- TrustBox widget - Micro Star --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="577b943d0000ff000591f43c" data-style-height="24px" data-style-width="300px" data-theme="${trustPilotTheme}"><a href="https://uk.trustpilot.com/review/gophr.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->`
                 swiperNav.innerHTML = `<div class="sn-row">
                         <div class="sn-col">
                             <div class="btn-gophr_button_prev"></div>
@@ -263,7 +262,7 @@ const gophrInit = {
                                 <span class="sn-current">1</span> of <span class="sn-total">${slides.length}</span>
                             </div>    
                         </div>
-                        <div class="sn-col">${trustPilotSet}</div>
+                        <div class="sn-col"><!-- TrustBox widget - Micro Star --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="577b943d0000ff000591f43c" data-style-height="24px" data-style-width="300px" data-theme="${trustPilotTheme}"><a href="https://uk.trustpilot.com/review/gophr.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget --></div>
                     </div>`
             } else {
                 swiperNav.innerHTML = `<div class="sn-buttons">
