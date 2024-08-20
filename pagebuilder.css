@@ -877,13 +877,48 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 /***************************
 /* Typeform - Contact Form 7 
  */
-.gophr__typeform .wpb_row .column_parent:first-of-type label strong {
+.gophr__typeform .wpb_row .column_parent:first-of-type .typeform-columns .typeform-col {
+    margin-bottom: 20px;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type .wpcf7 span.wpcf7-not-valid-tip {
+    color: red !important;
+    margin-top: 2px;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type label strong em {
+    font-style: normal;
     color: red;
 }
 .gophr__typeform .wpb_row .column_parent:first-of-type label input[type="text"], 
 .gophr__typeform .wpb_row .column_parent:first-of-type label input[type="email"] {
     width: 100%;
 }
+.gophr__typeform .wpb_row .column_parent:first-of-type label textarea {
+    height: 80px;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid {
+    font-weight: 700;
+    padding: 0 !important;
+    margin-top: 20px;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid::after, 
+.gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid input[type="submit"] {
+    font-size: 1.5em;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid input[type="submit"] {
+    outline: 0;
+    border: 2px solid var(--gophr--purple);
+    background-color: transparent;
+}
+@media (min-width: 600px) {
+    .gophr__typeform .wpb_row .column_parent:first-of-type .typeform-columns {
+        display: flex;
+        gap: 20px;
+    }
+    .gophr__typeform .wpb_row .column_parent:first-of-type .typeform-columns .typeform-col {
+        width: 50%;
+    }
+}
+
 .gophr__typeform .wpb_row .column_parent:last-of-type .uncol {
     background-color: #f1f1f1;
     padding: 20px;

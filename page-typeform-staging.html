@@ -1,11 +1,19 @@
 https://x3.gophr.com/av-gophr-typeform
 
+--- v01
+---
 <p>[vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading uncode_shortcode_id="709387"]This is a custom heading element. Lorem ipsum dolor sit amet, consectetur adipiscing elit[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]</p>
+
+--- v02
+---
+[vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][vc_custom_heading heading_semantic="h1" text_size="h1" uncode_shortcode_id="153120"]Lorem ipsum dolor sit amet, consectetur adipiscing elit.[/vc_custom_heading][vc_column_text uncode_shortcode_id="191019"]I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.[/vc_column_text][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading heading_semantic="h4" text_size="h4" uncode_shortcode_id="125963"]Praesent fermentum nisi bibendum diam bibendum, nec fermentum metus semper.[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]
+
 
 
 https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
 --- [Form]
+--- v01
 ---
 <label> Name<strong>*</strong>
   [text* your-name] </label>
@@ -31,6 +39,51 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 [hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
 
 [submit "Send"]
+
+--- v02
+---
+<div class="typeform-columns">
+  <div class="typeform-col">
+    <label> <strong>Name<em>*</em></strong>
+      [text* your-name] </label>
+  </div>
+  <div class="typeform-col">
+    <label> <strong>Business Name<em>*</em></strong>
+      [text* business-name] </label>
+  </div>
+</div>
+
+<div class="typeform-columns">
+  <div class="typeform-col">
+    <label> <strong>Business Email<em>*</em></strong>
+      [email* business-email] </label>
+  </div>
+  <div class="typeform-col">
+    <label> <strong>Contact Number<em>*</em></strong>
+      [text* contact-number] </label>
+  </div>
+</div>
+
+<div class="typeform-columns">
+  <div class="typeform-col">
+    <label> <strong>Approx deliveries per month<em>*</em></strong>
+      [select* deliveries-pm "0-10" "11-50" "51-200" "200+" "Not sure"] </label>
+  </div>
+  <div class="typeform-col">
+    <label> <strong>How we can help?</strong>
+      [text we-can-help placeholder "Any particular service requests"] </label>
+  </div>
+</div>
+
+<div class="typeform-row">
+  <label> <strong>How did you hear about Gophr?</strong>
+    [textarea hear-about-us] </label>
+</div>
+
+[hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
+
+<div class="btn-gophr_button_solid">[submit "Submit"]</div>
+
 
 --- [Mail] 
 --- Message body
