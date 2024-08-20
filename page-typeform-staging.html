@@ -1,0 +1,51 @@
+https://x3.gophr.com/av-gophr-typeform
+
+<p>[vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading uncode_shortcode_id="709387"]This is a custom heading element. Lorem ipsum dolor sit amet, consectetur adipiscing elit[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]</p>
+
+
+https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
+
+--- [Form]
+---
+<label> Name<strong>*</strong>
+  [text* your-name] </label>
+
+<label> Business Name<strong>*</strong>
+  [text* business-name] </label>
+
+<label> Business Email<strong>*</strong>
+  [email* business-email] </label>
+
+<label> Contact Number<strong>*</strong>
+  [text* contact-number] </label>
+
+<label> Approx deliveries per month<strong>*</strong>
+  [select* deliveries-pm "0-10" "11-50" "51-200" "200+" "Not sure"] </label>
+
+<label> How we can help?
+  [textarea we-can-help placeholder "Any particular service requests or challenges you’d like us to help with"] </label>
+
+<label> How did you hear about Gophr?
+  [textarea hear-about-us] </label>
+
+[hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
+
+[submit "Send"]
+
+--- [Mail] 
+--- Message body
+---
+From: [your-name]
+Subject: "TestForm"
+
+Message Body:
+[your-name]
+[business-name]
+[business-email]
+[contact-number]
+[deliveries-pm]
+[we-can-help]
+[hear-about-us]
+
+-- 
+This e-mail was sent from a contact form on [_site_title] ([_site_url])

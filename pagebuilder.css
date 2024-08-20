@@ -872,6 +872,35 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 .gophr--browser-height.align-items-center .row-parent, 
 .gophr--browser-height.gophr--mod-headings .row-parent, 
 .gophr--browser-height.gophr--mod-stats-graph .row-parent {display: flex; align-items: center;}
+
+
+/***************************
+/* Typeform - Contact Form 7 
+ */
+.gophr__typeform .wpb_row .column_parent:first-of-type label strong {
+    color: red;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type label input[type="text"], 
+.gophr__typeform .wpb_row .column_parent:first-of-type label input[type="email"] {
+    width: 100%;
+}
+.gophr__typeform .wpb_row .column_parent:last-of-type .uncol {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+.gophr__typeform .wpb_row .column_parent:last-of-type .uncol .icon-box {
+    display: flex;
+    gap: 20px;
+}
+.gophr__typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-icon img {
+    width: 50px;
+}
+.gophr__typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content {
+    flex: 1;
+}
+.gophr__typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content p {
+    margin-top: 0;
+}
 /*----------------------------------------------------------
 ### END STYLE | GOPHR - New Design
 ----------------------------------------------------------*/
