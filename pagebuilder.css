@@ -899,6 +899,11 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
     font-weight: 700;
     padding: 0 !important;
     margin-top: 20px;
+    min-width: 160px;
+    width: 160px;
+}
+.gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid::after {
+    right: 18px;
 }
 .gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid::after, 
 .gophr__typeform .wpb_row .column_parent:first-of-type .btn-gophr_button_solid input[type="submit"] {
@@ -908,6 +913,9 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
     outline: 0;
     border: 2px solid var(--gophr--purple);
     background-color: transparent;
+    width: 100% !important;
+    text-align: left !important;
+    padding-left: 18px;
 }
 @media (min-width: 600px) {
     .gophr__typeform .wpb_row .column_parent:first-of-type .typeform-columns {
