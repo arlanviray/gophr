@@ -42,6 +42,10 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
 --- v02
 ---
+<div class="btn-gophr_button_solid">[submit "Submit"]</div>
+
+--- v03
+---
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Name<em>*</em></strong>
@@ -52,7 +56,7 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
       [text* business-name] </label>
   </div>
 </div>
-
+  
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Business Email<em>*</em></strong>
@@ -63,7 +67,7 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
       [text* contact-number] </label>
   </div>
 </div>
-
+  
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Approx deliveries per month<em>*</em></strong>
@@ -71,23 +75,28 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
   </div>
   <div class="typeform-col">
     <label> <strong>How we can help?</strong>
-      [text we-can-help placeholder "Any particular service requests"] </label>
+      [text we-can-help placeholder "Any particular requests"] </label>
   </div>
 </div>
-
+  
 <div class="typeform-row">
   <label> <strong>How did you hear about Gophr?</strong>
     [textarea hear-about-us] </label>
 </div>
-
+  
 [hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
 
-<div class="btn-gophr_button_solid">[submit "Submit"]</div>
+<div class="btn-submit_typeform btn-gophr_button_outline">[submit "Submit"]</div>
 
 
 --- [Mail] 
 --- Message body
 ---
+To: [_site_admin_email], chris.mason@gophr.com, chris.mason@gophr.it
+From: [_site_title] <wordpress@x3.gophr.com>
+Subject: [_site_title] "TestForm"
+
+Message Body:
 From: [your-name]
 Subject: "TestForm"
 
