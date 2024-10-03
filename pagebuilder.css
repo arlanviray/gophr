@@ -814,6 +814,16 @@ footer.gophr--lightgreen-scheme .btn-container .btn-gophr_button_outline:not(.bt
 }
 .gophr--bg-dark.gophr--carousel-boxes .swiper-slide::after {background-color: var(--gophr--grey);}
 .gophr--bg-dark.gophr--carousel-boxes .swiper-slide-copy {color: white;}
+.gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .typeform-subheader, 
+.gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .typeform-heading h2, 
+.gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .uncode_text_column p, 
+.gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type label strong, 
+.gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .wpcf7 .wpcf7-response-output {
+    color: white;
+}
+.gophr--bg-dark .btn-submit_typeform.btn-gophr_button_outline input[type="submit"] {
+    color: white; border-color: white;
+}
 
 /* Truspitlot */
 .gophr--module .trustpilot-widget {width: 280px !important;}

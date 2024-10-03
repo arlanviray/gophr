@@ -46,6 +46,25 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
 --- v03
 ---
+
+<div class="typeform-columns">
+  <div class="typeform-col">
+    <label> <strong>Approx deliveries per month<em>*</em></strong>
+      [select* deliveries-pm "0-10" "11-50" "51-200" "200+" "Not sure"] </label>
+  </div>
+  <div class="typeform-col">
+    <label> <strong>How we can help?</strong>
+      [text we-can-help placeholder "Any particular requests"] </label>
+  </div>
+</div>
+  
+<div class="typeform-row">
+  <label> <strong>How did you hear about Gophr?</strong>
+    [textarea hear-about-us] </label>
+</div>
+
+--- v04
+---
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Name<em>*</em></strong>
@@ -74,14 +93,14 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
       [select* deliveries-pm "0-10" "11-50" "51-200" "200+" "Not sure"] </label>
   </div>
   <div class="typeform-col">
-    <label> <strong>How we can help?</strong>
-      [text we-can-help placeholder "Any particular requests"] </label>
+    <label> <strong>How did you hear about us?</strong>
+      [text hear-about-us] </label>
   </div>
 </div>
   
 <div class="typeform-row">
-  <label> <strong>How did you hear about Gophr?</strong>
-    [textarea hear-about-us] </label>
+  <label> <strong>How we can help?</strong>
+    [textarea how-we-can-help placeholder "Any particular requests"] </label>
 </div>
   
 [hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
@@ -90,24 +109,24 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
 
 --- [Mail] 
---- Message body
 ---
+- Email Header:
 To: [_site_admin_email], chris.mason@gophr.com, chris.mason@gophr.it
 From: [_site_title] <wordpress@x3.gophr.com>
 Subject: [_site_title] "TestForm"
 
-Message Body:
-From: [your-name]
-Subject: "TestForm"
+- Email Body:
+FORM SUBMISSION
+---------------
+Name: [your-name]
+Business Name: [business-name]
+Business Email: [business-email]
+Contact Number: [contact-number]
+Approx deliveries per month: [deliveries-pm]
+How did you hear about us? [hear-about-us]
+How we can help? [how-we-can-help]
 
-Message Body:
-[your-name]
-[business-name]
-[business-email]
-[contact-number]
-[deliveries-pm]
-[we-can-help]
-[hear-about-us]
+Url slug: [url-slug]
 
 -- 
 This e-mail was sent from a contact form on [_site_title] ([_site_url])
