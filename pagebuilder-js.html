@@ -115,6 +115,7 @@ const gophrInit = {
         // use for styling
         document.body.classList.add("js-enable", gophrUtils.getDeviceType(), gophrUtils.getMobileOS())
 
+        this.setTypeform()
         this.setEvents()
         this.setModules()
         this.setAnimations()
@@ -124,6 +125,55 @@ const gophrInit = {
             this.setCarousel()
             this.setAccordion()
         }, gophrUtils.isFrontendEditor() ? 500 : 0)
+    },
+
+    setColorSchemeClass(elem) {
+        // set color scheme classname to auto update button colors
+        const elSection = document.querySelector("section")
+        if (elSection && /gophr--/i.test(elSection.className)) {
+            const gophrColorScheme = elSection.className.split(" ")
+            gophrColorScheme.forEach((gophrClass) => {
+                if (gophrClass.includes("gophr--")) {
+                    elem.classList.add(gophrClass)
+                }
+            })
+        }
+    },
+
+    renderModal(text) {
+        const modal = document.createElement("dialog")
+        modal.classList.add("gophr--modal")
+        modal.innerHTML = `<div class="modal-container">
+                <div class="modal-body">${text}</div>
+                <button class="modal-button">CLOSE</button>
+            </div>`
+        document.body.appendChild(modal)
+        
+        // button
+        const modalButton = document.querySelector("dialog.gophr--modal .modal-button")
+        // add class
+        this.setColorSchemeClass(modalButton)
+        // close modal
+        modalButton.addEventListener("click", (e) => {
+            document.querySelector("dialog.gophr--modal").remove()
+        }, false)
+    },
+
+    setTypeform() {
+        const wpcf7Form = document.querySelector(".gophr--mod-2-cols-typeform .wpcf7-form")
+        if (wpcf7Form) {
+            // set page url to hidden url-slug field
+            const urlSlug = document.querySelector("input[name=url-slug]")
+            urlSlug.value = window.location.href;
+
+            // show modal
+            wpcf7Form.addEventListener("wpcf7mailsent", (e) => { // wpcf7submit - trigger when submit button is click
+                setTimeout(() => {
+                    this.renderModal(wpcf7Form.querySelector(".wpcf7-response-output").textContent)
+                    document.querySelector("dialog.gophr--modal").showModal();
+                }, 500)
+            }, false )
+        }
     },
 
     onScrollToTarget(target, fromUrl = false) {
@@ -178,16 +228,13 @@ const gophrInit = {
         }
 
         // header and footer, set colour scheme classname to auto update button colors
-        const elSection = document.querySelector("section")
-        if (elSection && /gophr--/i.test(elSection.className)) {
-            const gophrColorScheme = elSection.className.split(" ")
-            gophrColorScheme.forEach((gophrClass) => {
-                if (gophrClass.includes("gophr--")) {
-                    document.querySelector("header").classList.add("gophr--header", gophrClass)
-                    document.querySelector("footer").classList.add("gophr--footer", gophrClass)
-                }
-            })
-        }
+        const header = document.querySelector("header")
+        header.classList.add("gophr--header")
+        this.setColorSchemeClass(header)
+
+        const footer = document.querySelector("footer")
+        footer.classList.add("gophr--footer")
+        this.setColorSchemeClass(footer)
 
         //-- header insert classname to navbar-cta buttons
         const navbarCTA = document.querySelector("header .navbar-cta")

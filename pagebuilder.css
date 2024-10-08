@@ -311,6 +311,9 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type label textarea {
     height: 60px;
 }
+.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type label textarea::placeholder {
+    color: var(--gophr--lightdarkgrey);
+}
 
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type {
     background-color: black;
@@ -330,19 +333,26 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 }
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .uncell {
     padding: 20px !important;
+    padding-top: 50px !important;
 }
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-icon img {
-    width: 50px;
+    width: 80px;
 }
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content {
     flex: 1;
 }
+.gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content a {
+    color: black !important;
+}
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content p {
     margin-top: 0;
+}
+.gophr--mod-2-cols-typeform .wpb_row .column_parent:last-of-type .uncol .icon-box .icon-box-content p:first-child strong {
+    font-size: 18px;
 }
 
 @media (min-width: 600px) {
@@ -409,6 +419,42 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 }
 .btn-submit_typeform.btn-gophr_button_outline input[type="submit"]:hover {
     color: white !important; border-color: var(--gophr--purple) !important;
+}
+
+dialog.gophr--modal {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 0;
+}
+dialog.gophr--modal::backdrop {
+    background-color: var(--gophr--grey);
+    opacity: 0.9;
+}
+dialog.gophr--modal .modal-container {
+    position: relative;
+    background-color: white;
+    margin: 6px;
+    padding: 40px 1em;
+}
+dialog.gophr--modal .modal-body {
+    font-size: 18px;
+    text-align: center;
+}
+dialog.gophr--modal .modal-button {
+    font-family: "ES Klarheit Kurrent" !important;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: var(--gophr--purple);
+    padding-bottom: 4px;
 }
 
 /* Modules - carousels */
@@ -687,6 +733,7 @@ footer.gophr--pink-scheme .btn-container .btn-gophr_button_outline:not(.btn-flat
 .gophr--pink-scheme .gophr--mod-accordion .accordion-section .accordion-headers:hover {background-color: var(--gophr--pink);}
 .gophr--pink-scheme .gophr--mod-delivery .delivery-column .delivery-price mark {background-color: var(--gophr--pink);}
 .gophr--pink-scheme .gophr--mod-stats-graph .stats-graph-info .stats-graph-info-value .uncoltable {background-color: var(--gophr--pink);}
+dialog.gophr--modal .modal-button.gophr--pink-scheme {background-color: var(--gophr--pink);}
 
 /********************
 /* Colour RED scheme 
@@ -715,6 +762,7 @@ footer.gophr--red-scheme .btn-container .btn-gophr_button_outline:not(.btn-flat)
 .gophr--red-scheme .gophr--mod-accordion .accordion-section .accordion-headers:hover {background-color: var(--gophr--red);}
 .gophr--red-scheme .gophr--mod-delivery .delivery-column .delivery-price mark {background-color: var(--gophr--red);}
 .gophr--red-scheme .gophr--mod-stats-graph .stats-graph-info .stats-graph-info-value .uncoltable {background-color: var(--gophr--red);}
+dialog.gophr--modal .modal-button.gophr--red-scheme {background-color: var(--gophr--red);}
 
 /**********************
 /* Colour ORANGE scheme 
@@ -743,6 +791,7 @@ footer.gophr--orange-scheme .btn-container .btn-gophr_button_outline:not(.btn-fl
 .gophr--orange-scheme .gophr--mod-accordion .accordion-section .accordion-headers:hover {background-color: var(--gophr--orange);}
 .gophr--orange-scheme .gophr--mod-delivery .delivery-column .delivery-price mark {background-color: var(--gophr--orange);}
 .gophr--orange-scheme .gophr--mod-stats-graph .stats-graph-info .stats-graph-info-value .uncoltable {background-color: var(--gophr--orange);}
+dialog.gophr--modal .modal-button.gophr--orange-scheme {background-color: var(--gophr--orange);}
 
 /***************************
 /* Colour LIGHT GREEN scheme 
@@ -778,6 +827,7 @@ footer.gophr--lightgreen-scheme .btn-container .btn-gophr_button_outline:not(.bt
 .gophr--lightgreen-scheme .gophr--mod-delivery .delivery-column .delivery-price mark {color: var(--gophr--grey) !important; background-color: var(--gophr--lightgreen);}
 .gophr--lightgreen-scheme .gophr--mod-stats-graph .stats-graph-info .stats-graph-info-value .uncoltable {background-color: var(--gophr--lightgreen);}
 .gophr--lightgreen-scheme .gophr--mod-stats-graph .stats-graph-info .stats-graph-info-value p > * {color: black;}
+dialog.gophr--modal .modal-button.gophr--lightgreen-scheme {color: var(--gophr--grey); background-color: var(--gophr--lightgreen);}
 
 /*****************
 /* Dark background 
