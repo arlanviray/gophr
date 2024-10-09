@@ -457,6 +457,55 @@ dialog.gophr--modal .modal-button {
     padding-bottom: 4px;
 }
 
+/* Modules - locations  */
+.gophr--mod-locations .row-parent {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+.gophr--mod-locations .uncont {
+    max-width: 980px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.gophr--mod-locations .locations-list .heading-text {
+    background-color: var(--gophr--grey);
+    padding: 4px 10px 6px;
+}
+.gophr--mod-locations .locations-list .heading-text h4 {
+    color: white;
+}
+.gophr--mod-locations .locations-list .uncode-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+.gophr--mod-locations .locations-list .uncode-list div {
+    position: relative;
+    padding-left: 18px;
+}
+.gophr--mod-locations .locations-list .uncode-list div::before {
+    content: "\25BA";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    color: lightslategrey;
+}
+@media (max-width: 959px) {
+    .gophr--mod-locations .locations-list .uncode-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 767px) {
+    .gophr--mod-locations .locations-list .uncode-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 639px) {
+    .gophr--mod-locations .locations-list .uncode-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 /* Modules - carousels */
 .gophr--mod-carousel .row-parent {padding-top: 40px !important; padding-bottom: 80px !important;}
 .gophr--mod-carousel .swiper-slide .wpb_row {margin-left: 0 !important;}

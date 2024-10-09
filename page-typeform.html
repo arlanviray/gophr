@@ -1,20 +1,23 @@
 https://x3.gophr.com/av-gophr-typeform
 
---- v01
+--- Template v01
 ---
-<p>[vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading uncode_shortcode_id="709387"]This is a custom heading element. Lorem ipsum dolor sit amet, consectetur adipiscing elit[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]</p>
+[vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading uncode_shortcode_id="709387"]This is a custom heading element. Lorem ipsum dolor sit amet, consectetur adipiscing elit[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]
 
---- v02
+--- Template v02
 ---
 [vc_section overlay_alpha="50" uncode_shortcode_id="499350" el_class="gophr__typeform"][vc_row][vc_column width="1/2"][vc_custom_heading heading_semantic="h1" text_size="h1" uncode_shortcode_id="153120"]Lorem ipsum dolor sit amet, consectetur adipiscing elit.[/vc_custom_heading][vc_column_text uncode_shortcode_id="191019"]I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.[/vc_column_text][contact-form-7 id="81687"][/vc_column][vc_column width="1/2"][vc_custom_heading heading_semantic="h4" text_size="h4" uncode_shortcode_id="125963"]Praesent fermentum nisi bibendum diam bibendum, nec fermentum metus semper.[/vc_custom_heading][vc_icon icon_image="94322" uncode_shortcode_id="192279"]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis ligula ac congue commodo.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="198100"]Phasellus a porta risus, sit amet tristique augue. Mauris semper magna nec accumsan elementum.[/vc_icon][vc_icon icon_image="94322" uncode_shortcode_id="166789"]Proin accumsan fermentum eleifend. Etiam odio ante, maximus quis tellus eu, volutpat tempus lectus. Fusce ut diam vitae odio pretium hendrerit ut a mi.[/vc_icon][vc_icon icon_image="94321" uncode_shortcode_id="750846"]Proin lacinia cursus orci, et interdum lorem tincidunt vel. Vestibulum fermentum ornare ex, quis semper neque finibus.[/vc_icon][/vc_column][/vc_row][/vc_section]
 
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
 
 https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
---- [Form]
---- v01
----
+-----
+- v01
+-----
+- [Form]
 <label> Name<strong>*</strong>
   [text* your-name] </label>
 
@@ -40,13 +43,16 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 
 [submit "Send"]
 
---- v02
----
+-----
+- v02
+-----
+- [Form]
 <div class="btn-gophr_button_solid">[submit "Submit"]</div>
 
---- v03
----
-
+-----
+- v03
+-----
+- [Form]
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Approx deliveries per month<em>*</em></strong>
@@ -63,13 +69,28 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
     [textarea hear-about-us] </label>
 </div>
 
---- v04
----
-
+-----
+- v04
+-----
+- [Form]
 [hidden url-slug default:user_url "https://x3.gophr.com/av-gophr-typeform"]
 
---- v05
----
+- [Mail]
+To: [_site_admin_email], chris.mason@gophr.com, chris.mason@gophr.it, arlan.viray@gmail.com
+From: [_site_title] <wordpress@x3.gophr.com>
+Subject: [_site_title] "TestForm"
+
+- [Additional Settings]
+skip_mail: on
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+
+-----
+- v05
+-----
+- [Form]
 <div class="typeform-columns">
   <div class="typeform-col">
     <label> <strong>Name<em>*</em></strong>
@@ -113,12 +134,12 @@ https://x3.gophr.com/wp-admin/admin.php?page=wpcf7&post=94328&active-tab=3
 <div class="btn-submit_typeform btn-gophr_button_outline">[submit "Submit"]</div>
 
 
---- [Mail] 
----
+- [Mail]
 - Email Header:
-To: [_site_admin_email], chris.mason@gophr.com, chris.mason@gophr.it, arlan.viray@gmail.com
-From: [_site_title] <wordpress@x3.gophr.com>
-Subject: [_site_title] "TestForm"
+To: chris.mason@gophr.com, arlan.viray@gmail.com
+From: Gophr <yo@gophr.com>
+Subject: Test FormType submission
+Additional headers: Reply-To: yo@gophr.com
 
 - Email Body:
 FORM SUBMISSION
