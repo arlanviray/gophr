@@ -300,6 +300,9 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
     color: red !important;
     margin-top: 2px;
 }
+.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type form p {
+    margin-top: 0 !important;
+}
 .gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type label strong em {
     font-style: normal;
     color: red;
