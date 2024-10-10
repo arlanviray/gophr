@@ -1998,7 +1998,28 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 
 /* Modules - bg pattern */
 .gophr--mod-bg-pattern {position: relative;}
-.gophr--mod-bg-pattern::before {content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background-color: var(--gophr--purple); clip-path: polygon(0 50%, 100% 5%, 100% 100%, 0% 100%);}
+.gophr--mod-bg-pattern::before {
+    content: ""; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: var(--gophr--purple); 
+    clip-path: polygon(0 50%, 100% 5%, 100% 100%, 0% 100%);
+}
+.gophr--mod-bg-pattern.with-bg-pattern-pink::before {
+    background-color: var(--gophr--pink);
+}
+.gophr--mod-bg-pattern.with-bg-pattern-red::before {
+    background-color: var(--gophr--red);
+}
+.gophr--mod-bg-pattern.with-bg-pattern-orange::before {
+    background-color: var(--gophr--orange);
+}
+.gophr--mod-bg-pattern.with-bg-pattern-lightgreen::before {
+    background-color: var(--gophr--lightgreen);
+}
 
 /* Modules - 2 columns default */
 .gophr--mod-2-cols-default .row-parent {max-width: 1020px; padding-top: 60px !important; padding-bottom: 60px !important;}
@@ -2581,6 +2602,18 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
     width: 100%;
     height: 30%;
     background-color: var(--gophr--purple);
+}
+.gophr--browser-height.with-bg-pattern-pink::after {
+    background-color: var(--gophr--pink);
+}
+.gophr--browser-height.with-bg-pattern-red::after {
+    background-color: var(--gophr--red);
+}
+.gophr--browser-height.with-bg-pattern-orange::after {
+    background-color: var(--gophr--orange);
+}
+.gophr--browser-height.with-bg-pattern-lightgreen::after {
+    background-color: var(--gophr--lightgreen);
 }
 .gophr--browser-height.align-items-center .row-parent, 
 .gophr--browser-height.gophr--mod-headings .row-parent, 
