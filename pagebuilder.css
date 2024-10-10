@@ -1,6 +1,6 @@
-/*----------------------------------------------------------
+/*----------------------------------
 ### START STYLE | GOPHR - New Design
-----------------------------------------------------------*/
+------------------------------------*/
 /* Fonts */
 @font-face {
     font-family: "ES Klarheit Kurrent";
@@ -1108,6 +1108,6 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 .gophr--browser-height.align-items-center .row-parent, 
 .gophr--browser-height.gophr--mod-headings .row-parent, 
 .gophr--browser-height.gophr--mod-stats-graph .row-parent {display: flex; align-items: center;}
-/*----------------------------------------------------------
+/*--------------------------------
 ### END STYLE | GOPHR - New Design
-----------------------------------------------------------*/
+----------------------------------*/
