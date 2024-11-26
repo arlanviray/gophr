@@ -694,6 +694,10 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
     .gophr--mod-stats-graph .limit-width {max-width: 1160px;}
 }
 @media (min-width: 960px) {
+    .menu-smart ul > li > a, 
+    .menu-smart ul > li > ul > li > a {
+        letter-spacing: 0.01px !important;
+    }
     .gophr--mod-hero::before {content: ""; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background-color: var(--gophr--body);}
     .gophr--mod-hero .col-lg-7::after {clip-path: polygon(40% 0%, 100% 0, 100% 100%, 5% 100%);}
     .gophr--mod-hero .col-lg-7 .uncell {padding-right: 5%; padding-left: 5%;}
