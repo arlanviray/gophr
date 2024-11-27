@@ -226,6 +226,8 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-headings .uncode_text_column:first-of-type p {display: inline-block; font-size: 17px; text-decoration: underline; text-underline-offset: 2px;}
 .gophr--mod-headings .uncode_text_column.gophr--text-center:first-of-type p {display: inherit;}
 .gophr--mod-headings.headings-centralise .gophr--text-center {max-width: 600px; margin-right: auto; margin-left: auto;}
+.gophr--mod-headings.pt-0 .row-parent {padding-top: 0 !important;}
+.gophr--mod-headings.pb-0 .row-parent {padding-bottom: 0 !important;}
 
 /* Modules - column boxes */
 .gophr--mod-col-boxes .row-parent {padding-top: 20px !important; padding-bottom: 60px !important;}
@@ -550,7 +552,7 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
 
 /* Carousel singles1 */
 .gophr--carousel-singles1 .limit-width {max-width: initial !important; padding-right: 0 !important; padding-left: 0 !important;}
-.gophr--carousel-singles1 .swiper-slide .uncol {max-width: 800px; margin-right: auto; margin-left: auto;}
+.gophr--carousel-singles1 .swiper-slide .uncol {max-width: 980px; margin-right: auto; margin-left: auto;}
 .gophr--carousel-singles1 .swiper-slide .gophr--title, 
 .gophr--carousel-singles1 .swiper-slide-copy {max-width: 600px; margin-right: auto; margin-left: auto; padding: 0 20px; text-align: center;}
 .gophr--carousel-singles1 .swiper-slide-copy p {font-size: 18px;}
@@ -923,6 +925,8 @@ dialog.gophr--modal .modal-button.gophr--lightgreen-scheme {color: var(--gophr--
 }
 .gophr--bg-dark.gophr--carousel-boxes .swiper-slide::after {background-color: var(--gophr--grey);}
 .gophr--bg-dark.gophr--carousel-boxes .swiper-slide-copy {color: white;}
+.gophr--bg-dark.gophr--mod-2-cols-default .h2, 
+.gophr--bg-dark.gophr--mod-2-cols-default p {color: white;}
 .gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .typeform-subheader, 
 .gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .typeform-heading h2, 
 .gophr--bg-dark.gophr--mod-2-cols-typeform .wpb_row .column_parent:first-of-type .uncode_text_column p, 
