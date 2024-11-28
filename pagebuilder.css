@@ -81,7 +81,7 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
     --gophr--menu-height: 65px;
 }
 
-/* Margins | Paddings */
+/* Margins */
 .gophr--module .mt-0 {margin-top: 0 !important;}
 .gophr--module .mt-12 {margin-top: 12px !important;}
 .gophr--module .mt-18 {margin-top: 18px !important;}
@@ -173,6 +173,8 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-hero .wpb_column .uncol {padding: 40px 20px;}
 .gophr--mod-hero .column_child .uncol {padding: 0;}
 .gophr--mod-hero .col-lg-5 .uncode_text_column {margin-top: 20px !important; padding-bottom: 40px !important;}
+.gophr--mod-hero .col-lg-5 .uncode_text_column.mt-0 {margin-top: 0 !important;}
+.gophr--mod-hero .col-lg-5 .uncode_text_column.pb-0 {padding-bottom: 0 !important;}
 .gophr--mod-hero .col-lg-5 .uncode_text_column p {font-size: 18px;}
 .gophr--mod-hero .col-lg-5 .uncode_text_column.gophr--text-underline p {font-size: 17px;}
 .gophr--mod-hero .col-lg-5 .row-internal:last-child .uncont {display: flex; flex-wrap: wrap; align-items: baseline;}
