@@ -558,6 +558,7 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
 .gophr--carousel-singles1 .swiper-slide .gophr--title, 
 .gophr--carousel-singles1 .swiper-slide-copy {max-width: 600px; margin-right: auto; margin-left: auto; padding: 0 20px; text-align: center;}
 .gophr--carousel-singles1 .swiper-slide-copy p {font-size: 18px;}
+.gophr--carousel-singles1 .btn-container {text-align: center;}
 .gophr--carousel-singles1 .swiper-navigation {position: initial;}
 .gophr--carousel-singles1 .swiper-navigation .sn-buttons {pointer-events: none; overflow: hidden; z-index: 1; position: absolute; top: 0; width: 100%; height: 100%; transition: height 0.5s ease;}
 .gophr--carousel-singles1 .swiper-navigation .sn-buttons .btn-gophr_button_prev, 
@@ -591,7 +592,8 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
     clip-path: inherit;
 }
 .gophr--carousel-singles2 .swiper-slide-quote, 
-.gophr--carousel-singles2 .swiper-slide-author {text-align: center;}
+.gophr--carousel-singles2 .swiper-slide-author, 
+.gophr--carousel-singles2 .btn-container {text-align: center;}
 .gophr--carousel-singles2 .swiper-slide-quote mark {line-height: 44px;}
 .gophr--carousel-singles2 .swiper-navigation .sn-buttons {display: flex; gap: 10px; align-items: center; justify-content: center; margin-bottom: 20px;}
 .gophr--carousel-singles2 .swiper-navigation .sn-counter {text-align: center;}
