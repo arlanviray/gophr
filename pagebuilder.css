@@ -220,8 +220,17 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 
 .gophr--mod-hero.gophr--bg-light h1, 
 .gophr--mod-hero.gophr--bg-light p {color: #000;}
+.gophr--mod-hero.gophr--bg-light::before, 
 .gophr--mod-hero.gophr--bg-light .col-lg-7, 
 .gophr--mod-hero.gophr--bg-light .col-lg-7::after {background-color: var(--gophr--light);}
+
+.gophr--mod-hero.hero-col-right-padding-0 .col-lg-7 .uncell {padding-right: 0 !important;}
+.gophr--mod-hero.hero-col-right-bg-dark::before, 
+.gophr--mod-hero.hero-col-right-bg-dark .col-lg-7::after {background-color: var(--gophr--grey);}
+.gophr--mod-hero.hero-col-right-bg-lightest::before, 
+.gophr--mod-hero.hero-col-right-bg-lightest .col-lg-7::after {background-color: var(--gophr--lightest);}
+.gophr--mod-hero.hero-col-right-bg-purple::before, 
+.gophr--mod-hero.hero-col-right-bg-purple .col-lg-7::after {background-color: var(--gophr--purple);}
 
 /* Modules - headings */
 .gophr--mod-headings .row-parent {padding-top: 60px !important; padding-bottom: 60px !important;}
@@ -735,7 +744,6 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
         clip-path: polygon(0 0, 16% 0, 1% 100%, 0% 100%);
         background-color: var(--gophr--grey);
     }
-    .gophr--mod-hero.gophr--bg-light::before, 
     .gophr--mod-hero.gophr--bg-light.hero-image-col-bg .hero-image-col-bg-container::after {
         background-color: var(--gophr--light);
     }
