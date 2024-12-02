@@ -209,6 +209,10 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-hero.hero-image-col-bg .col-lg-7 .uncell div {height: 100%;}
 .gophr--mod-hero.hero-image-fit-cover .col-lg-7 img, 
 .gophr--mod-hero.hero-image-col-bg .col-lg-7 img {object-fit: cover; height: 100%;}
+.gophr--mod-hero.hero-image-fit-cover.hero-image-pos-top-left .col-lg-7 img {object-position: top left;}
+.gophr--mod-hero.hero-image-col-bg.hero-image-pos-top-left .hero-image-col-bg-container {background-position: left top;}
+.gophr--mod-hero.hero-image-fit-cover.diagonal-pattern-none .col-lg-7::after,
+.gophr--mod-hero.hero-image-col-bg.diagonal-pattern-none .hero-image-col-bg-container::after {display: none;}
 .gophr--mod-hero.hero-image-col-bg .hero-image-col-bg-container {display: none;}
 
 .gophr--mod-hero.hero-v2-0 .col-lg-5 .uncode_text_column {padding-bottom: 0 !important;}
