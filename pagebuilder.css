@@ -573,7 +573,16 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
 .gophr--carousel-singles1 .swiper-slide-copy p {font-size: 18px;}
 .gophr--carousel-singles1 .btn-container {text-align: center;}
 .gophr--carousel-singles1 .swiper-navigation {position: initial;}
-.gophr--carousel-singles1 .swiper-navigation .sn-buttons {pointer-events: none; overflow: hidden; z-index: 1; position: absolute; top: 0; width: 100%; height: 100%; transition: height 0.5s ease;}
+.gophr--carousel-singles1 .swiper-navigation .sn-buttons {
+    pointer-events: none; 
+    overflow: hidden; 
+    z-index: 1; 
+    position: absolute; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    transition: top 0.5s, height 0.5s ease;
+}
 .gophr--carousel-singles1 .swiper-navigation .sn-buttons .btn-gophr_button_prev, 
 .gophr--carousel-singles1 .swiper-navigation .sn-buttons .btn-gophr_button_next {pointer-events: auto; font-size: 30px; position: absolute; top: 50%; transform: translateY(-50%); width: 94px; height: 94px; background-color: var(--gophr--grey) !important;}
 .gophr--carousel-singles1 .swiper-navigation .sn-buttons .btn-gophr_button_prev {left: -36px;}
@@ -696,6 +705,10 @@ html.js .gophr--mod-carousel .row-parent {opacity: 0;}
     .gophr--mod-accordion .accordion-headers .h3 {font-size: 20px; line-height: 25px;}
 }
 @media (max-width: 767px) {
+    .gophr--carousel-singles1 .swiper-slide-no-image .swiper-slide-copy {
+        max-width: none;
+        padding: 0 60px;
+    }
     .gophr--mod-2-cols-reverse.gophr--mod-2-cols-image-text .wpb_row {display: flex; flex-direction: column-reverse;}
     .gophr--mod-delivery .delivery-column {width: 50%;}
 }

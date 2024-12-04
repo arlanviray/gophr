@@ -327,10 +327,22 @@ const gophrInit = {
             }
 
             const positionBtnArrows = (swiper) => {
-                const activeImgHeight = swiper.slides[swiper.activeIndex].querySelector(".swiper-slide-image img").offsetHeight
-                carousel.querySelector(".swiper-navigation .sn-buttons").style.height = `${activeImgHeight}px`
+                const activeImg = swiper.slides[swiper.activeIndex].querySelector(".swiper-slide-image img")
+                const snButtons = carousel.querySelector(".swiper-navigation .sn-buttons")
+                // set swiper navigation buttons position top and height
+                if (activeImg) {
+                    const activeImgTop = swiper.slides[swiper.activeIndex].querySelector(".swiper-slide-image").offsetTop
+                    const activeImgHeight = activeImg.offsetHeight
+                    snButtons.style.top = `${activeImgTop}px`
+                    snButtons.style.height = `${activeImgHeight}px`
+                } else {
+                    // no image
+                    snButtons.style.top = `0px`
+                    snButtons.style.height = `${swiper.slides[swiper.activeIndex].offsetHeight}px` 
+                }
+
                 if (hasModHeadings) {
-                    carousel.querySelector(".swiper-navigation .sn-buttons").style.top = `${carousel.querySelector(".swiper").offsetTop}px`
+                    snButtons.style.top = `${carousel.querySelector(".swiper").offsetTop}px`
                 }
             }
 
@@ -367,12 +379,17 @@ const gophrInit = {
                                         }
 
                                         const slideImage = slide.querySelector(".swiper-slide-image img")
-                                        const imageDataSrcset = slideImage.dataset.srcset
-                                        const imageDataSrc = slideImage.dataset.src
-                                        if (imageDataSrcset) {
-                                            slideImage.setAttribute("srcset", imageDataSrcset)
-                                        } else if (imageDataSrc) {
-                                            slideImage.setAttribute("src", imageDataSrc)
+                                        if (slideImage) {
+                                            const imageDataSrcset = slideImage.dataset.srcset
+                                            const imageDataSrc = slideImage.dataset.src
+                                            if (imageDataSrcset) {
+                                                slideImage.setAttribute("srcset", imageDataSrcset)
+                                            } else if (imageDataSrc) {
+                                                slideImage.setAttribute("src", imageDataSrc)
+                                            }
+                                        } else {
+                                            // no image
+                                            slide.querySelector(".uncont").classList.add("swiper-slide-no-image")
                                         }
                                     })
                                 }
