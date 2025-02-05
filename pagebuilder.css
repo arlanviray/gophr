@@ -1151,6 +1151,134 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 .gophr--browser-height.align-items-center .row-parent, 
 .gophr--browser-height.gophr--mod-headings .row-parent, 
 .gophr--browser-height.gophr--mod-stats-graph .row-parent {display: flex; align-items: center;}
+
+/* 
+- New setting for responsive navigation menu
+- Display menu on desktop and mobile for specific browser width
+*/
+@media only screen and (max-width: 1160px) {
+    .show-nav-left .mobmenu-overlay, .show-nav-right .mobmenu-overlay, .show-mob-menu-search .mobmenu-overlay {
+        background: rgba(0, 0, 0, 0.83);
+    }
+
+    .mob-menu-header-holder {
+        width: 100%;
+        background-color: #000000;
+        height: var(--gophr--menu-height);
+        position: fixed;
+    }
+    .mobmenul-container {
+        position: relative;
+        margin-left: 30px;
+        margin-top: 16px;
+        height: 60px;
+        float: left;
+    }
+    .mobmenul-container i {
+        line-height: 18px;
+        font-size: 18px;
+        float: left;
+        color: #ffffff;
+    }
+    .mob-cancel-button {
+        font-size: 18px !important;
+    }
+
+    .mob-menu-logo-holder {
+        margin-top: 16px;
+        text-align: left;
+        margin-left: 20px;
+        margin-right: 0;
+        height: 60px;
+        float: left;
+    }
+    .mobmenu .headertext {
+        color: #222;
+        text-decoration: none;
+    }
+    .mob-standard-logo {
+        display: inline-block;
+        height: 29px !important;
+    }
+    .mob-retina-logo {
+        height: 29px !important;
+    }
+
+    .mobmenur-container {
+        top: 10px;
+        margin-right: 5px;
+        margin-top: 16px;
+    }
+
+    .mob-menu-slideout-over.show-nav-left .mobmenu-left-panel {
+        overflow: hidden;
+    }
+    .show-nav-left .mobmenu-panel.show-panel, .show-nav-right .mobmenu-panel.show-panel {
+        z-index: 300000;
+    }
+    .mob-menu-slideout .mobmenu-panel, .mob-menu-slideout-over .mobmenu-panel, .mob-menu-slideout .mobmenu-cart-panel, .mob-menu-slideout-over .mobmenu-cart-panel {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: auto;
+        z-index: 10000;
+        opacity: 1;
+    }
+    .mobmenu-left-panel {
+        background-color: #303030;
+        width: 280px;
+    }
+    .mobmenu-left-panel .mob-cancel-button {
+        color: #303030;
+    }
+    .mobmenu-left-alignment .mobmenu-content .leftmtop {
+        padding-top: 20px;
+        padding-bottom: 12px;
+    }
+    .mobmenu-left-panel li a, .leftmbottom, .leftmtop {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #mobmenuleft li a, #mobmenuleft li a:visited, .mobmenu-content h2, .mobmenu-content h3, .show-nav-left .mob-menu-copyright, .show-nav-left .mob-expand-submenu i {
+        color: #ffffff;
+    }
+
+    .mobmenu-content #mobmenuleft .sub-menu {
+        background-color: #303030;
+        margin: 0;
+        color: #fff;
+        width: 100%;
+        position: initial;
+        height: 100%;
+    }
+    .mobmenu-content li > .sub-menu li {
+        padding-left: calc(10* 1%);
+    }
+    .mobmenu-content #mobmenuleft .sub-menu a {
+        color: #fff;
+    }
+    .mob-expand-submenu i {
+        font-size: 18px;
+    }
+    
+    .mob-menu-left-bg-holder {
+        opacity: 1;
+        background-attachment: fixed;
+        background-position: center top;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+
+    .mob_menu, .mobmenu-panel, .mobmenu, .mobmenu-cart-panel, .mobmenu-footer-menu-holder, .mobmenu-right-panel, .mobmenu-left-panel {
+        display: block !important;
+    }
+    
+    .menu-wrapper.menu-sticky {
+        display: none !important;
+    }
+}
 /*--------------------------------
 ### END STYLE | GOPHR - New Design
 ----------------------------------*/
