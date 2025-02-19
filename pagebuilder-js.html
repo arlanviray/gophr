@@ -120,6 +120,12 @@ const gophrInit = {
         this.setModules()
         this.setAnimations()
         this.setAnimationsDesktopOnly()
+        // header navigation added classname to open popup
+        // (Main Menu 2025 - FAQs | Contact Us)
+        const MenuItem95154 =  document.querySelectorAll(".menu-item-95154")
+        if (MenuItem95154.length) {
+            MenuItem95154.forEach((item) => item.classList.add("intercom-open"))
+        }
 
         setTimeout(() => {
             this.setCarousel()
