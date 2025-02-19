@@ -224,6 +224,7 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-hero.gophr--bg-light .col-lg-7, 
 .gophr--mod-hero.gophr--bg-light .col-lg-7::after {background-color: var(--gophr--light);}
 
+.gophr--mod-hero.hero-col-left-padding-0 .col-lg-7 .uncell {padding-left: 0 !important;}
 .gophr--mod-hero.hero-col-right-padding-0 .col-lg-7 .uncell {padding-right: 0 !important;}
 .gophr--mod-hero.hero-col-right-bg-dark::before, 
 .gophr--mod-hero.hero-col-right-bg-dark .col-lg-7::after {background-color: var(--gophr--grey);}
