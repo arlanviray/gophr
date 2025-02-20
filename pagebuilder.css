@@ -1157,10 +1157,10 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 .gophr--browser-height.gophr--mod-stats-graph .row-parent {display: flex; align-items: center;}
 
 /* 
-- New setting for responsive navigation menu
+- New setting for responsive navigation menu (Main Menu (Primary Menu) 2022)
 - Display menu on desktop and mobile for specific browser width
 */
-@media only screen and (max-width: 1160px) {
+/*@media only screen and (max-width: 1160px) {
     .show-nav-left .mobmenu-overlay, .show-nav-right .mobmenu-overlay, .show-mob-menu-search .mobmenu-overlay {
         background: rgba(0, 0, 0, 0.83);
     }
@@ -1282,7 +1282,7 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
     .menu-wrapper.menu-sticky {
         display: none !important;
     }
-}
+}*/
 /*--------------------------------
 ### END STYLE | GOPHR - New Design
 ----------------------------------*/
