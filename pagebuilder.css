@@ -234,6 +234,12 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 .gophr--mod-hero.hero-col-right-bg-purple::before, 
 .gophr--mod-hero.hero-col-right-bg-purple .col-lg-7::after {background-color: var(--gophr--purple);}
 
+.gophr--mod-hero .col-lg-7:has(.mobile-image) .uncode-single-media.mobile-image {display: none;}
+@media (max-width: 639px) {
+    .gophr--mod-hero .col-lg-7:has(.mobile-image) .uncode-single-media {display: none;}
+    .gophr--mod-hero .col-lg-7:has(.mobile-image) .uncode-single-media.mobile-image {display: block;}
+}
+
 /* Modules - headings */
 .gophr--mod-headings .row-parent {padding-top: 60px !important; padding-bottom: 60px !important;}
 .gophr--mod-headings .uncont {max-width: 980px; margin-right: auto !important; margin-left: auto !important;}
