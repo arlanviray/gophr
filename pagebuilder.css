@@ -199,6 +199,7 @@ footer .btn-gophr_button_outline.btn:not(.btn-custom-typo):not(.btn-inherit) {
 
 .gophr--mod-hero .col-lg-7 .uncol {z-index: 1;}
 .gophr--mod-hero .col-lg-7 .uncell {vertical-align: middle !important;}
+.gophr--mod-hero.hero-col-vertical-top .col-lg-7 .uncell {vertical-align: top !important; padding-top: 10px !important;}
 .gophr--mod-hero.hero-company-logo .col-lg-7 {background-color: var(--gophr--body);}
 .gophr--mod-hero.hero-company-logo .col-lg-7 .uncol {padding-top: 12%;}
 .gophr--mod-hero.hero-image-fit-cover .col-lg-7 .uncol, 
@@ -1129,6 +1130,7 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 
 .gophr--browser-height .row-parent {z-index: 1; min-height: calc(100vh - var(--gophr--menu-height));}
 .gophr--browser-height.gophr--mod-hero .col-lg-5 .uncell {vertical-align: middle !important;}
+.gophr--browser-height.gophr--mod-hero.hero-col-vertical-top .col-lg-5 .uncell {vertical-align: top !important;}
 .gophr--browser-height.with-bg-pattern::after {
     content: "";
     position: absolute;
