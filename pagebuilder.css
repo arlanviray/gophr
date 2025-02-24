@@ -1167,7 +1167,7 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
 - Display menu on desktop and mobile for specific browser width.
 - These can be use for longer menus in the future. Only update media query max-width as necessary.
 */
-/*@media only screen and (max-width: 1160px) {
+@media only screen and (max-width: 1200px) {
     .show-nav-left .mobmenu-overlay, .show-nav-right .mobmenu-overlay, .show-mob-menu-search .mobmenu-overlay {
         background: rgba(0, 0, 0, 0.83);
     }
@@ -1289,7 +1289,7 @@ footer .btn-container .btn-gophr_button_outline:not(.btn-flat):not(.btn-hover-no
     .menu-wrapper.menu-sticky {
         display: none !important;
     }
-}*/
+}
 /*--------------------------------
 ### END STYLE | GOPHR - New Design
 ----------------------------------*/

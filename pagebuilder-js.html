@@ -124,7 +124,13 @@ const gophrInit = {
         // (Main Menu 2025 - FAQs | Contact Us)
         const MenuItem95154 =  document.querySelectorAll(".menu-item-95154")
         if (MenuItem95154.length) {
-            MenuItem95154.forEach((item) => item.classList.add("intercom-open"))
+            MenuItem95154.forEach((item) => {
+                // item.classList.add("intercom-open")
+                item.querySelector("a").addEventListener("click", (e) => {
+                    e.preventDefault()
+                    window.Intercom("show")
+                })
+            })
         }
 
         setTimeout(() => {
